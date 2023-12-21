@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'language';
+  constructor(private translateService:TranslateService){
+    translateService.addLangs(['en','fr','tam'])
+  }
+
+  changeLang(event:any){
+    this.translateService.use(event.target.value)
+    
+  }
+
+  
+
 }
